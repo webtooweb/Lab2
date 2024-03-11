@@ -2,20 +2,12 @@ import {toDoItemTemplate} from '../templates/toDoItemTemplate'
 import {subscribe} from '../models/toDoListModel'
 import { deleteToDoController } from '../controllers/deleteToDoController';
 
-document.addEventListener('click', function(event) {
-    if (event.target.id === 'delete') {
-        const uid = event.target.dataset.uid;
-        deleteToDoController(uid);
-    }
-});
-
-
 let view
 
 export function toDoListView() {
-  view = document.querySelector('#to-do-List')
- 
+  view = document.querySelector('#to-do-list')
   view.addEventListener('click', onHandleClick)
+
 }
 
 subscribe(render)
@@ -37,4 +29,3 @@ function onHandleClick(e) {
          break
   }
 }
-// document.addEventListener('DOMContentLoaded', toDoListView);

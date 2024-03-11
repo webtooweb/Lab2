@@ -1,57 +1,29 @@
-// import { deleteToDo } from '../models/toDoListModel'
+import { deleteToDo } from '../models/toDoListModel'
 
-// let dialog
-// let deleteButton
-// let exitButton
-// let uid
-
-// export function deleteToDoController(itemUid) {
-//     uid = itemUid
-//     dialog = document.querySelector('#delete-to-do')
-//     exitButton = dialog.querySelector('#exit')
-//     deleteButton = dialog.querySelector('#delete')
-//     configureListeners()
-//     dialog.showModal()
-// }
-
-// function configureListeners() {
-//     exitButton.addEventListener('click', onCloseDialog)
-//     deleteButton.addEventListener('click', onRemoveToDo)
-// }
-
-// function onCloseDialog(e) {
-//     dialog.close()
-// }
-
-// function onRemoveToDo(e) {
-//     deleteToDo(uid); 
-//     onCloseDialog(); 
-// }
-import { deleteToDo } from '../models/toDoListModel';
-
-let dialog;
-let uid;
+let dialog
+let deleteButton
+let exitButton
+let uid
 
 export function deleteToDoController(itemUid) {
-    uid = itemUid;
-    dialog = document.querySelector('#delete-to-do');
-    configureListeners();
-    dialog.showModal();
+    uid = itemUid
+    dialog = document.querySelector('#delete-to-do')
+    exitButton = dialog.querySelector('#exit')
+    deleteButton = dialog.querySelector('#delete')
+    configureListeners()
+    dialog.showModal()
 }
 
 function configureListeners() {
-    const exitButton = dialog.querySelector('#exit');
-    const deleteButton = dialog.querySelector('#delete');
-
-    exitButton.addEventListener('click', onCloseDialog);
-    deleteButton.addEventListener('click', onRemoveToDo);
+    exitButton.addEventListener('click', onCloseDialog)
+    deleteButton.addEventListener('click', onRemoveToDo)
 }
 
 function onCloseDialog(e) {
-    dialog.close();
+    dialog.close()
 }
 
 function onRemoveToDo(e) {
     deleteToDo(uid); 
-    onCloseDialog(e); 
+    onCloseDialog(); 
 }

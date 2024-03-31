@@ -1,10 +1,13 @@
 import {toDoItemTemplate} from '../templates/toDoItemTemplate'
 import {subscribe} from '../models/toDoListModel'
 import { deleteToDoController } from '../controllers/deleteToDoController';
-import { updateToDoController } from '../controllers/updateToDoController';
-import { addNewToDoController } from '../controllers/addNewToDoController'; // Import the addNewToDoController function
 
-
+document.addEventListener('click', function(event) {
+    if (event.target.id === 'delete') {
+        const uid = event.target.dataset.uid;
+        deleteToDoController(uid);
+    }
+});
 
 
 let view
@@ -44,10 +47,4 @@ function onHandleClick(e) {
         null    
   }
 }
-
-
-
-
-
-
-
+// document.addEventListener('DOMContentLoaded', toDoListView);
